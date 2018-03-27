@@ -16,32 +16,25 @@ class FeedViewController: UITableViewController, UIImagePickerControllerDelegate
     var posts = [Post]()
 
     
-    
-    
-    
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         
         if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
             
-            // setting the compression quality to 90%
+           
             if let imageData = UIImageJPEGRepresentation(image, 0.9),
                 let imageFile = PFFile(data: imageData),
                 let user = PFUser.current(){
                 
-                //2. We create a Post object from the image
+                
                 let post = Post(image: imageFile, user: user, comment: "A Selfie")
                 
                 post.saveInBackground(block: { (success, error) -> Void in
                     if success {
                         print("Post successfully saved in Parse")
                         
-                        //3. Add post to our posts array, chose index 0 so that it will be added
-                        //   to the top of your table instead of at the bottom (default behaviour)
+                      
                         self.posts.insert(post, at: 0)
                         
-                        //4. Now that we have added a post, updating our table
-                        //   We are just inserting our new Post instead of reloading our whole tableView
-                        //   Both method would work, however, this gives us a cool animation for free
                         
                         let indexPath = IndexPath(row: 0, section: 0)
                         self.tableView.insertRows(at: [indexPath], with: .automatic)
@@ -73,42 +66,6 @@ class FeedViewController: UITableViewController, UIImagePickerControllerDelegate
         }
     }
 
-    
-    
-    // We use OperationQueue.main because we need update all UI elements on the main thread.
-//    // This is a rule and you will see this again whenever you are updating UI.
-//    OperationQueue.main.addOperation {
-//    self.tableView.reloadData()
-//    }
-//}
-//
-//}else{
-//    print("error with response data")
-//}
-//
-//})
-
-
-// this is called to start (or restart, if needed) our task
-//task.resume()
-
-
-
-//        let me = User(aUsername: "Candice", aProfileImage: UIImage(named: "Grumpy-Cat")!)
-//        let post0 = Post(image: UIImage(named: "BigHorn")!, user: me, comment: "Big Horn")
-//        let post1 = Post(image: UIImage(named: "coyote")!, user: me, comment: "Coyote")
-//        let post2 = Post(image: UIImage(named: "roadrunner")!, user: me, comment: "Roadrunner")
-//        let post3 = Post(image: UIImage(named: "scorpion")!, user: me, comment: "Scorpion")
-//        let post4 = Post(image: UIImage(named: "rattlesnake")!, user: me, comment: "Rattlesnake")
-////
-//        posts = [post0, post1, post2, post3, post4]
-//
-// Uncomment the following line to preserve selection between presentations
-// self.clearsSelectionOnViewWillAppear = false
-
-// Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-// self.navigationItem.rightBarButtonItem = self.editButtonItem
-//}
 
 override func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()
