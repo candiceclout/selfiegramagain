@@ -86,26 +86,13 @@ override func tableView(_ tableView: UITableView, heightForRowAt indexPath: Inde
 }
 
 
+
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "postCell", for: indexPath) as! SelfieCell
         
         let post = self.posts[indexPath.row]
         
-        // I've added this line to prevent flickering of images
-        // We are inside the cellForRowAtIndexPath method that gets called everytime we lay out a cell
-        // This always resets the image to blank, waits for the image to download, and then sets it
-        cell.selfieImageView.image = nil
-        
-        let imageFile = post.image
-        imageFile.getDataInBackground(block: {(data, error) -> Void in
-            if let data = data {
-                let image = UIImage(data: data)
-                cell.selfieImageView.image = image
-            }
-        })
-        
-        cell.usernameLabel.text = post.user.username
-        cell.commentLabel.text = post.comment
+        cell.post = post
         
         return cell
     }

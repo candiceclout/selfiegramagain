@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14086"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -123,9 +124,22 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lyk-Gc-0fg">
+                                            <rect key="frame" x="344" y="258" width="23" height="20"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="23" id="hX4-fN-rsN"/>
+                                                <constraint firstAttribute="height" constant="20" id="s1k-zZ-Si8"/>
+                                            </constraints>
+                                            <state key="normal" image="hearts-off"/>
+                                            <state key="selected" image="hearts-on"/>
+                                            <connections>
+                                                <action selector="likeButtonClicked:" destination="ag7-fi-sSG" eventType="touchUpInside" id="r1z-8F-Meg"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="Zzi-iu-aJI" firstAttribute="leading" secondItem="G46-nm-xry" secondAttribute="leading" id="1HH-jR-APJ"/>
+                                        <constraint firstItem="lyk-Gc-0fg" firstAttribute="top" secondItem="dKV-4i-Vhw" secondAttribute="bottom" constant="8" id="3tn-hS-jBM"/>
                                         <constraint firstItem="dKV-4i-Vhw" firstAttribute="leading" secondItem="V4x-0D-kjE" secondAttribute="leading" id="7Ph-m7-5B1"/>
                                         <constraint firstAttribute="trailing" secondItem="dKV-4i-Vhw" secondAttribute="trailing" id="GUa-wl-mpG"/>
                                         <constraint firstItem="Zzi-iu-aJI" firstAttribute="leading" secondItem="dKV-4i-Vhw" secondAttribute="leading" id="JLp-CY-tmP"/>
@@ -135,10 +149,12 @@
                                         <constraint firstItem="G46-nm-xry" firstAttribute="leading" secondItem="V4x-0D-kjE" secondAttribute="leading" id="ehC-Bw-cq0"/>
                                         <constraint firstItem="G46-nm-xry" firstAttribute="top" secondItem="Zzi-iu-aJI" secondAttribute="bottom" constant="8" symbolic="YES" id="hsc-HR-fn8"/>
                                         <constraint firstItem="dKV-4i-Vhw" firstAttribute="top" secondItem="V4x-0D-kjE" secondAttribute="top" id="svX-Bx-ztz"/>
+                                        <constraint firstItem="lyk-Gc-0fg" firstAttribute="trailing" secondItem="V4x-0D-kjE" secondAttribute="trailingMargin" constant="8" id="tD9-YF-EHf"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="commentLabel" destination="G46-nm-xry" id="HhM-RM-js8"/>
+                                    <outlet property="likeButton" destination="lyk-Gc-0fg" id="WcY-i4-QLn"/>
                                     <outlet property="selfieImageView" destination="dKV-4i-Vhw" id="ArA-Sv-WRZ"/>
                                     <outlet property="usernameLabel" destination="Zzi-iu-aJI" id="0Q8-cV-V3J"/>
                                 </connections>
@@ -249,5 +265,7 @@
         <image name="NewsFeed" width="25" height="25"/>
         <image name="Profile" width="25" height="25"/>
         <image name="cactus" width="1052" height="810"/>
+        <image name="hearts-off" width="42" height="37"/>
+        <image name="hearts-on" width="42" height="37"/>
     </resources>
 </document>
