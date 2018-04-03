@@ -61,21 +61,30 @@
             </objects>
             <point key="canvasLocation" x="1064.8" y="751.57421289355329"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Activity View Controller Table View Controller-->
         <scene sceneID="NgF-s8-9wP">
             <objects>
-                <tableViewController id="vEh-Od-IwL" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="0jT-7n-4uI">
+                <tableViewController id="vEh-Od-IwL" customClass="ActivityViewControllerTableViewController" customModule="selfiegramagain" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="0jT-7n-4uI" customClass="ActivityViewController">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="zTX-qQ-Wus">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="activityCell" textLabel="Rdo-5R-YU1" style="IBUITableViewCellStyleDefault" id="zTX-qQ-Wus" customClass="ActivityCell">
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="zTX-qQ-Wus" id="HiE-8Q-i2M">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Rdo-5R-YU1">
+                                            <rect key="frame" x="16" y="0.0" width="343" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
@@ -98,6 +107,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <gestureRecognizers/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="postCell" rowHeight="320" id="ag7-fi-sSG" customClass="SelfieCell" customModule="selfiegramagain" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="320"/>
@@ -136,6 +146,13 @@
                                                 <action selector="likeButtonClicked:" destination="ag7-fi-sSG" eventType="touchUpInside" id="r1z-8F-Meg"/>
                                             </connections>
                                         </button>
+                                        <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hearts-on" translatesAutoresizingMaskIntoConstraints="NO" id="jyF-Tq-jG7">
+                                            <rect key="frame" x="175.5" y="115" width="23" height="20"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="20" id="JJY-Zn-rQh"/>
+                                                <constraint firstAttribute="width" constant="23" id="QvG-3g-Nhb"/>
+                                            </constraints>
+                                        </imageView>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="Zzi-iu-aJI" firstAttribute="leading" secondItem="G46-nm-xry" secondAttribute="leading" id="1HH-jR-APJ"/>
@@ -143,8 +160,10 @@
                                         <constraint firstItem="dKV-4i-Vhw" firstAttribute="leading" secondItem="V4x-0D-kjE" secondAttribute="leading" id="7Ph-m7-5B1"/>
                                         <constraint firstAttribute="trailing" secondItem="dKV-4i-Vhw" secondAttribute="trailing" id="GUa-wl-mpG"/>
                                         <constraint firstItem="Zzi-iu-aJI" firstAttribute="leading" secondItem="dKV-4i-Vhw" secondAttribute="leading" id="JLp-CY-tmP"/>
+                                        <constraint firstItem="jyF-Tq-jG7" firstAttribute="centerX" secondItem="dKV-4i-Vhw" secondAttribute="centerX" id="Pdy-qB-gBX"/>
                                         <constraint firstItem="G46-nm-xry" firstAttribute="top" secondItem="Zzi-iu-aJI" secondAttribute="bottom" constant="8" id="TMh-k6-enj"/>
                                         <constraint firstAttribute="bottom" secondItem="G46-nm-xry" secondAttribute="bottom" constant="8" id="Tti-z6-IJW"/>
+                                        <constraint firstItem="jyF-Tq-jG7" firstAttribute="centerY" secondItem="dKV-4i-Vhw" secondAttribute="centerY" id="aV9-KO-0Vc"/>
                                         <constraint firstItem="Zzi-iu-aJI" firstAttribute="top" secondItem="dKV-4i-Vhw" secondAttribute="bottom" constant="8" id="akW-TU-mY5"/>
                                         <constraint firstItem="G46-nm-xry" firstAttribute="leading" secondItem="V4x-0D-kjE" secondAttribute="leading" id="ehC-Bw-cq0"/>
                                         <constraint firstItem="G46-nm-xry" firstAttribute="top" secondItem="Zzi-iu-aJI" secondAttribute="bottom" constant="8" symbolic="YES" id="hsc-HR-fn8"/>
@@ -154,6 +173,7 @@
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="commentLabel" destination="G46-nm-xry" id="HhM-RM-js8"/>
+                                    <outlet property="heartAnimationView" destination="jyF-Tq-jG7" id="xHK-7t-Wm7"/>
                                     <outlet property="likeButton" destination="lyk-Gc-0fg" id="WcY-i4-QLn"/>
                                     <outlet property="selfieImageView" destination="dKV-4i-Vhw" id="ArA-Sv-WRZ"/>
                                     <outlet property="usernameLabel" destination="Zzi-iu-aJI" id="0Q8-cV-V3J"/>
@@ -163,6 +183,7 @@
                         <connections>
                             <outlet property="dataSource" destination="pDj-XP-oC3" id="5Ch-i0-c92"/>
                             <outlet property="delegate" destination="pDj-XP-oC3" id="3VK-y8-PQc"/>
+                            <outletCollection property="gestureRecognizers" destination="o2z-TV-irb" appends="YES" id="Hl9-KO-0IC"/>
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="Zvq-V9-09D">
@@ -173,8 +194,20 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <refreshControl key="refreshControl" opaque="NO" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="G2r-p1-pzK">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <connections>
+                            <action selector="refreshPulled:" destination="pDj-XP-oC3" eventType="valueChanged" id="L6A-zD-2Bt"/>
+                        </connections>
+                    </refreshControl>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SCg-SB-kOv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer numberOfTapsRequired="2" id="o2z-TV-irb">
+                    <connections>
+                        <action selector="doubleTappedSelfie:" destination="pDj-XP-oC3" id="Z9I-aK-fYI"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1064.8" y="-18.440779610194905"/>
         </scene>
